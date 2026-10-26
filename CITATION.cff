@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite the associated palmitoylation and papillary thyroid carcinoma manuscript."
+title: "A palmitoylation-related gene expression signature distinguishes papillary thyroid carcinoma across four GEO datasets"
+type: software
+authors:
+  - name: "Palmitoylation PTC code contributors"
+version: 9.0.1
+date-released: 2026-10-26
+abstract: "Source code for TCGA discovery, patient-grouped nested validation, external GEO assessment, clinical associations, sensitivity analyses, enrichment, and figures."
+license: MIT

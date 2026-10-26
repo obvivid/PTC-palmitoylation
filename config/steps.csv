@@ -1,0 +1,35 @@
+step,script,description,depends_on
+01,R/01_tcga_matrix.R,TCGA expression preprocessing,
+02,R/02_differential_expression.R,Differential expression and gene-family enrichment,01
+03,R/03_signature_discovery.R,Full-data signature discovery and descriptive fit,02
+04,R/04_nested_cv.R,Patient-grouped repeated nested cross-validation,02
+05,R/05_external_ptc.R,External PTC validation with deduplication,03
+06,R/06_external_ftc.R,FTC versus FTA transfer assessment,03
+07,R/07_external_gene_direction.R,Gene expression directions across PTC cohorts,03;05
+08,R/08_clinical_composition.R,Clinical annotation and custom ssGSEA composition,01;03
+09,R/09_clinical_scoring_sensitivity.R,Clinical effects and scoring sensitivity,08;03
+10,R/10_molecular_axis.R,Published BRS TDS ERK and purity associations,08
+11,R/11_paired_sensitivity.R,Paired tumor versus normal sensitivity,01
+12,R/12_histology_sensitivity.R,Histology exclusion and nested CV sensitivity,02;08
+13,R/13_enrichment_string.R,MSigDB enrichment and STRING network,02
+14,R/14_enrichment_clusterprofiler.R,GO and KEGG enrichment,02
+15,R/15_ctd_chemical_associations.R,CTD associations and published null control,02;03
+16,R/16_figures.R,Figures 1 to 5,03;04;05;06;08
+17,R/17_result_audit.R,Check reported results and export a table index,04;05;06;09;10;11;12;15
+18,R/18_singlecell_preprocessing.R,GSE193581 preprocessing and cell annotation,
+19,R/19_singlecell_distribution.R,Cell distribution and sample-level detection,18
+20,R/20_spatial_detection.R,Section-level spatial detection,
+21,R/21_composition_sensitivity.R,Composition adjustment and mutation-stratified sensitivity,01;03;08
+22,R/22_cellular_figures.R,Cellular Figure 6,19;20
+23,R/23_publication_figures.R,Publication plot objects and supplementary checks,16;21;22
+24,R/24_survival.R,Exploratory survival associations and Supplementary Table S8,08
+25,R/25_single_sample_application.R,Fixed single-sample scores and expression-signal mixing,
+26,R/26_single_sample_figure.R,Supplementary Figure S9,25
+27,R/27_application_model_comparison.R,Exploratory four-gene scoring comparison,25
+28,R/28_application_mixing_audit.R,Frozen weighted scoring and paired expression mixtures,27
+29,R/29_application_comparison_figure.R,Supplementary Figure S10,28
+30,R/30_integrated_figures.R,Main Figures 1-7 and Supplementary Figures S1–S5 and S7–S8,23;29
+31,R/31_singlecell_annotation_audit.R,Cluster-marker verification and Supplementary Figure S11,18;19
+32,R/32_epithelial_lineage_annotation.R,Epithelial-lineage identity review and frozen aggregation,18
+33,R/33_epithelial_lineage_pseudobulk.R,Independent-donor pseudobulk and sensitivity comparisons,32
+34,R/34_revised_cellular_figures.R,Final Figures 5-7 and Supplementary Figures S6–S7,30;33

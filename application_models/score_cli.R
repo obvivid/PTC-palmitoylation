@@ -1,0 +1,11 @@
+# Usage: Rscript application_models/score_cli.R input.csv output.csv
+full <- commandArgs(FALSE); script <- sub('^--file=','',full[grepl('^--file=',full)][1])
+directory <- dirname(normalizePath(script,mustWork=TRUE))
+args <- commandArgs(TRUE)
+if(length(args)!=2)stop('Supply input CSV and output CSV.')
+source(file.path(directory,'score_learned_contrast.R'))
+x <- read.csv(args[1],check.names=FALSE,stringsAsFactors=FALSE)
+if(!all(c('gene','log2_expression')%in%names(x)))stop('Required columns: gene, log2_expression.')
+result <- score_learned_contrast(setNames(x$log2_expression,x$gene),file.path(directory,'learned_contrast_frozen.csv'))
+write.csv(result,args[2],row.names=FALSE)
+print(result)

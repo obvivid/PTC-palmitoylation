@@ -1,0 +1,25 @@
+manuscript_table,source,source_module
+Supplementary Table S2,deg_full_palmitoylation_genes.csv,R/02_differential_expression.R
+Supplementary Table S6,per_gene_external_direction.csv,R/07_external_gene_direction.R
+Supplementary Table S18,benign_gse82208_summary.csv,R/06_external_ftc.R
+Supplementary Table S25,Custom marker definitions in the source module,R/08_clinical_composition.R
+Supplementary Table S3,paired_sensitivity_59pairs_2026-10-03.csv,R/11_paired_sensitivity.R
+Supplementary Table S4,histology_excluded7_2026-10-03.csv,R/12_histology_sensitivity.R
+Supplementary Table S24,Cohort assembly in docs/METHODS.md and Supplementary Methods,R/05_external_ptc.R
+Supplementary Table S11,extended/composition/M1_coefficients_with_CI.csv,R/21_composition_sensitivity.R
+Supplementary Table S12,extended/singlecell/celltype_detection.csv,R/19_singlecell_distribution.R
+Supplementary Table S13,extended/singlecell/thyrocyte_by_sample.csv,R/19_singlecell_distribution.R
+Supplementary Table S14,extended/singlecell/thyrocyte_detection_summary.csv,R/19_singlecell_distribution.R
+Supplementary Table S17,extended/spatial/spatial_by_section.csv,R/20_spatial_detection.R
+Supplementary Table S10,extended/composition/M3_by_driver.csv,R/21_composition_sensitivity.R
+Supplementary Table S9,published_molecular_correlations.csv,R/10_molecular_axis.R
+Supplementary Table S8,survival_endpoints.csv,R/24_survival.R
+Supplementary Table S19,single_sample/tables/fixed_pipeline_results.csv,R/25_single_sample_application.R
+Supplementary Table S20,single_sample/tables/development_patient_grouped_cv.csv,R/25_single_sample_application.R
+Supplementary Table S21,single_sample/tables/synthetic_signal_mixing.csv,R/25_single_sample_application.R
+Supplementary Table S27,single_sample/tables/measurement_stress.csv; single_sample/tables/fixed_pipeline_results.csv,R/25_single_sample_application.R
+Supplementary Table S5,external_final_summary.csv,R/05_external_ptc.R
+Supplementary Table S7,revision_clinical_exclNX_2026-10-02.csv,R/09_clinical_scoring_sensitivity.R
+Supplementary Table S26,weighted_single_sample/tables/nested_summary.csv,R/27_application_model_comparison.R
+Supplementary Table S23,weighted_single_sample/tables/fixed_transfer_results.csv,R/27_application_model_comparison.R
+Supplementary Table S22,weighted_single_sample/tables/audit_mixing_paired_comparison.csv,R/28_application_mixing_audit.R

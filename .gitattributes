@@ -1,0 +1,2 @@
+# Keep frozen input bytes unchanged across operating systems.
+* -text

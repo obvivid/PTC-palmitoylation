@@ -1,0 +1,5 @@
+method,operating_point,threshold
+rank,youden,0.00101952693950007
+rank,sensitivity95,-0.0228014201410546
+contrast,youden,-0.363364815791667
+contrast,sensitivity95,-0.529507248791667

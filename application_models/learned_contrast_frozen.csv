@@ -1,0 +1,5 @@
+gene,coefficient,threshold,input_scale,model_origin
+ABHD17C,0.363019957229077,-0.298371140441372,GPL570_gene_log2,"GSE33630 patient-grouped CV, linear SVM"
+ZDHHC20,0.636980042770923,-0.298371140441372,GPL570_gene_log2,"GSE33630 patient-grouped CV, linear SVM"
+ABHD17B,-0.565810058384698,-0.298371140441372,GPL570_gene_log2,"GSE33630 patient-grouped CV, linear SVM"
+ZDHHC6,-0.434189941615302,-0.298371140441372,GPL570_gene_log2,"GSE33630 patient-grouped CV, linear SVM"

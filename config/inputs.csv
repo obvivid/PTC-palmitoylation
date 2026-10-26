@@ -1,0 +1,123 @@
+file,source,source_url,steps
+data/tcga/TCGA-THCA.star_counts.tsv.gz,UCSC Xena GDC TCGA-THCA STAR counts,https://xenabrowser.net/datapages/?dataset=TCGA-THCA.star_counts.tsv&host=https%3A%2F%2Fgdc.xenahubs.net,01
+data/reference/hgnc_complete_set.txt,HGNC complete set,https://hgnc.genenames.org/download/,01
+data/tcga/data_clinical_patient.txt,cBioPortal THCA PanCancer Atlas patient clinical data,https://www.cbioportal.org/study/summary?id=thca_tcga_pan_can_atlas_2018,08;12;24
+data/tcga/mutations/sequenced_samples.json,cBioPortal sequenced sample list,https://www.cbioportal.org/api/sample-lists/thca_tcga_pan_can_atlas_2018_sequenced/sample-ids,08
+data/tcga/mutations/thca_mutations.json,cBioPortal mutation records,https://www.cbioportal.org/api/molecular-profiles/thca_tcga_pan_can_atlas_2018_mutations/mutations?sampleListId=thca_tcga_pan_can_atlas_2018_sequenced&projection=DETAILED,08
+data/reference/NIHMS633017-supplement-15.xlsx,TCGA THCA original Table S2 workbook,https://pmc.ncbi.nlm.nih.gov/articles/PMC4243044/,10
+data/geo/GPL570.annot.gz,GEO platform annotation GPL570,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL570,05;06;07;09;16;23;25
+data/ctd/CTD_chem_gene_ixns.tsv.gz,CTD chemical gene interactions,https://ctdbase.org/downloads/,ctd-preparation
+data/ctd/ctd_human_chem_gene.tsv,CTD ordered unique human chemical gene pairs,https://ctdbase.org/downloads/,15
+data/geo/GSE33630_series_matrix.txt.gz,GEO GSE33630 series matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE33630,05;07;09;16;23;25
+data/geo/GSE35570_matrix.txt.gz,GEO GSE35570 series matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE35570,05;07;16;23;25
+data/geo/GSE29265_matrix.txt.gz,GEO GSE29265 series matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE29265,05;07;16;23;25
+data/geo/GSE60542_matrix.txt.gz,GEO GSE60542 series matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60542,05;07;16;23;25
+data/geo/GSE65144_series_matrix.txt.gz,GEO GSE65144 series matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65144,09;23;25
+data/geo/GSE82208_series_matrix.txt.gz,GEO GSE82208 series matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE82208,06;16;23;25
+data/geo/GSE193581/umi/GSM5814574_PTC01_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814575_PTC02_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814576_PTC03_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814577_NORM03_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814578_PTC04_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814579_PTC05_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814580_PTC06_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814581_PTC07_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814582_NORM07_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814583_ATC08_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814584_ATC09_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814585_ATC10_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814586_ATC11_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814587_ATC12_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814588_ATC13_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814589_ATC14_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814590_ATC15_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814591_ATC17_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814592_ATC18_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814593_NORM18_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814594_NORM19_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814595_NORM20_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/geo/GSE193581/umi/GSM5814596_NORM21_UMI.txt.gz,GEO GSE193581 raw UMI matrix,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,18
+data/spatial/GSE250521/GSM7980860_N-1_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980860_N-1_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980861_N-2_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980861_N-2_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980862_N-3_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980862_N-3_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980863_N-4_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980863_N-4_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980864_PTC-1_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980864_PTC-1_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980865_PTC-2_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980865_PTC-2_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980866_PTC-3_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980866_PTC-3_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980867_PTC-4_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980867_PTC-4_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980868_LPTC-1_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980868_LPTC-1_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980869_LPTC-2_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980869_LPTC-2_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980870_LPTC-3_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980870_LPTC-3_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980871_LPTC-4_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980871_LPTC-4_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980872_ATC-1_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980872_ATC-1_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980873_ATC-2_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980873_ATC-2_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980874_ATC-3_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980874_ATC-3_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980875_ATC-4_visium_features.tsv.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/spatial/GSE250521/GSM7980875_ATC-4_visium_matrix.mtx.gz,GEO GSE250521 Visium matrix or features,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,20
+data/reference/MCPcounter/genes.txt,MCP-counter marker resource,https://raw.githubusercontent.com/ebecht/MCPcounter/master/Signatures/genes.txt,21
+data/spatial/GSE250521/GSM7980860_N-1_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980861_N-2_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980862_N-3_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980863_N-4_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980864_PTC-1_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980865_PTC-2_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980866_PTC-3_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980867_PTC-4_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980868_LPTC-1_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980869_LPTC-2_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980870_LPTC-3_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980871_LPTC-4_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980872_ATC-1_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980873_ATC-2_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980874_ATC-3_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980875_ATC-4_visium_tissue_hires_image.png.gz,GEO GSE250521 historical histology image,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980860_N-1_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980861_N-2_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980862_N-3_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980863_N-4_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980864_PTC-1_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980865_PTC-2_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980866_PTC-3_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980867_PTC-4_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980868_LPTC-1_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980869_LPTC-2_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980870_LPTC-3_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980871_LPTC-4_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980872_ATC-1_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980873_ATC-2_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980874_ATC-3_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980875_ATC-4_visium_tissue_positions_list.csv.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980860_N-1_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980861_N-2_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980862_N-3_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980863_N-4_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980864_PTC-1_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980865_PTC-2_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980866_PTC-3_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980867_PTC-4_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980868_LPTC-1_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980869_LPTC-2_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980870_LPTC-3_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980871_LPTC-4_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980872_ATC-1_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980873_ATC-2_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980874_ATC-3_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/spatial/GSE250521/GSM7980875_ATC-4_visium_scalefactors_json.json.gz,GEO GSE250521 spatial geometry,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521,
+data/geo/GSE193581/GSE193581_celltype_annotation.txt.gz,GEO GSE193581 author cell annotations,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE193581,32
+data/singlecell_lineage/sample_donor_ledger.csv,Supplementary Data 1 frozen lineage metadata,Supplementary_Data_1.zip,32
+data/singlecell_lineage/dbl_calls_cache.csv.gz,Supplementary Data 1 frozen lineage metadata,Supplementary_Data_1.zip,

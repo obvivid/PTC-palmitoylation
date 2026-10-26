@@ -1,0 +1,58 @@
+# Compare headline statistics to the manuscript; all exported tables are regenerated.
+suppressMessages({library(data.table);library(pROC)})
+read_table <- function(name) fread(file.path(RESULT_DIR,name),na.strings=c("","NA"))
+checks <- list()
+add <- function(label,actual,expected,tolerance=0.0002) {
+  checks[[length(checks)+1]] <<- data.table(metric=label,actual=actual,expected=expected,
+    tolerance=tolerance,pass=is.finite(actual) && abs(actual-expected)<=tolerance)
+}
+oof <- read_table("nested_cv_oof_predictions.csv")
+add("TCGA tissues",nrow(oof),564,0)
+add("TCGA patients",uniqueN(oof$pid),505,0)
+aucs <- vapply(paste0("pred_r",1:5),function(v) {
+  stopifnot(all(is.finite(oof[[v]])))
+  as.numeric(auc(roc(oof$group,oof[[v]],levels=c("Normal","Tumor"),direction="<",quiet=TRUE)))
+},numeric(1))
+add("Nested CV mean AUC",mean(aucs),0.965357,0.002)
+add("Nested CV SD",sd(aucs),0.006811,0.002)
+de <- read_table("deg_full_palmitoylation_genes.csv")
+add("Differential candidate genes",sum(de$adj.P.Val<0.05),25,0)
+external <- read_table("external_final_summary.csv")
+reference <- c(GSE33630=0.979138322,GSE35570=0.996598639,GSE29265=0.9525,GSE60542=0.950549451)
+for (v in names(reference)) {
+  row <- external[startsWith(dataset,v)]
+  stopifnot(nrow(row)==1)
+  add(paste(v,"AUC"),row$auc,reference[[v]])
+}
+ftc <- read_table("benign_gse82208_summary.csv")
+add("FTC versus FTA AUC",ftc$auc,0.708148148)
+atc <- read_table("atc_validation_summary.csv")
+add("GSE33630 ATC AUC",atc[dataset=="GSE33630"]$auc,0.870707071)
+add("GSE65144 ATC AUC",atc[dataset=="GSE65144"]$auc,0.878205128)
+molecular <- read_table("published_molecular_correlations.csv")
+for (v in c("BRAF_RAF_score","differentiation_score","ERK_score"))
+  add(paste(v,"available patients"),molecular[variable==v]$n,391,0)
+add("Purity available patients",molecular[variable=="purity"]$n,400,0)
+paired <- read_table("paired_sensitivity_59pairs_2026-10-03.csv")
+add("Paired patients",paired[item=="four_gene_score"]$n_pairs,59,0)
+add("Paired score direction",paired[item=="four_gene_score"]$n_direction_tumor_higher,57,0)
+hist <- readRDS(file.path(RESULT_DIR,"histology_exclusion_sensitivity_2026-10-03.rds"))
+add("Histology excluded tumors",nrow(hist$histology_excluded),7,0)
+add("Histology sensitivity mean AUC",mean(hist$nested_cv_auc),0.966176571,0.002)
+ctd <- read_table("drug_prediction_control.csv")
+add("CTD chemicals",ctd[metric=="n_chem_hits"]$value,220,0)
+add("CTD chemicals with at least three genes",ctd[metric=="n_chem_ge3"]$value,77,0)
+add("CTD random count P",ctd[metric=="p_n_chem"]$value,0.894105894,0.01)
+add("CTD random three gene P",ctd[metric=="p_ge3"]$value,0.500499500,0.01)
+# Supplementary Table S7 effect direction. Mutation effects are mutant minus wild type and sex is
+# female minus male; these checks fail if a group order is ever reversed again.
+clin <- read_table("revision_clinical_exclNX_2026-10-02.csv")
+add("BRAF delta mutant minus wild type",clin[var=="BRAF V600E"]$eff,0.527333,0.01)
+add("RAS delta mutant minus wild type",clin[var=="RAS mutation"]$eff,-0.328053,0.01)
+add("Sex delta female minus male",clin[var=="Sex"]$eff,-0.046462,0.01)
+report <- rbindlist(checks)
+fwrite(report,file.path(RESULT_DIR,"reproduction_check.csv"))
+print(report)
+table_index <- fread(file.path(SOURCE_ROOT,"config/manuscript_tables.csv"))
+fwrite(table_index,file.path(RESULT_DIR,"manuscript_table_index.csv"))
+if (!all(report$pass)) stop("Some headline statistics differ; inspect reproduction_check.csv and input/software snapshots.")

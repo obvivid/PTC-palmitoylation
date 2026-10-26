@@ -1,0 +1,29 @@
+{
+  "sources": [
+    {
+      "file": "string_version.json",
+      "source_url": "https://string-db.org/api/json/version",
+      "verification_date": "2026-10-19",
+      "sha256": "2ccaf342a8fbcf2db550da164579b675cf3e615c039eaa59c3b67b3448bafa5c"
+    },
+    {
+      "file": "kegg_pathway_genes.tsv",
+      "source_url": "https://rest.kegg.jp/link/pathway/hsa",
+      "verification_date": "2026-10-19",
+      "sha256": "06fc6aa2bed0fa6c5a8e7a59dd8740f8301aeef754344cd162447ccdf7c8b5f9"
+    },
+    {
+      "file": "kegg_pathway_names.tsv",
+      "source_url": "https://rest.kegg.jp/list/pathway/hsa",
+      "verification_date": "2026-10-19",
+      "sha256": "345290b203a665fa7604f36ba51d78095a712c6c02820fb09fde82a5a90c0a3a"
+    },
+    {
+      "file": "string_network_25.tsv",
+      "source_url": "https://version-12-5.string-db.org/api/tsv/network?identifiers=ABHD17C%0DLYPLA2%0DZDHHC6%0DZDHHC14%0DABHD17B%0DZDHHC11%0DZDHHC16%0DZDHHC23%0DZDHHC5%0DZDHHC20%0DZDHHC15%0DPPT1%0DZDHHC4%0DLYPLA1%0DABHD10%0DZDHHC13%0DZDHHC1%0DPPT2%0DZDHHC7%0DZDHHC3%0DZDHHC21%0DZDHHC12%0DZDHHC17%0DZDHHC8%0DZDHHC9&species=9606&required_score=400&network_type=functional&add_white_nodes=0&caller_identity=PTC_reproducibility_audit",
+      "verification_date": "2026-10-19",
+      "sha256": "672f605ba37f8cca24cc87accbcec175e23f15fa41207628116841bd86e83cd8"
+    }
+  ],
+  "errors": []
+}
