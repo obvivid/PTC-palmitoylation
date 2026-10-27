@@ -1,4 +1,4 @@
-# Bounded audit of frozen models and previously generated mixtures; no model search.
+# Verify frozen-model predictions and recalculate matched expression-signal mixtures.
 ROOT<-file.path(RESULT_DIR,'weighted_single_sample')
 source(file.path(SOURCE_ROOT,'application_models','models.R'))
 suppressPackageStartupMessages(library(jsonlite))

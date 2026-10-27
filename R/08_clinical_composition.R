@@ -41,7 +41,7 @@ meta[, IMMUNE := as.numeric(ss["IMMUNE",])]
 meta[, THYRO  := as.numeric(ss["THYRO", ])]
 meta[, COMPOS := scale(STROMA)[,1] + scale(IMMUNE)[,1] - scale(THYRO)[,1]]
 
-sec("[2] Mutation annotation fix: not sequenced -> NA (no longer coded as 0)")
+sec("[2] Mutation annotation: unsequenced samples have missing mutation status")
 sq   <- unique(sid15(fromJSON(file.path(ROOT,"data/tcga/mutations/sequenced_samples.json"))))
 mut  <- as.data.table(fromJSON(file.path(ROOT,"data/tcga/mutations/thca_mutations.json")))
 b600 <- unique(sid15(mut[grepl("^BRAF V600", keyword)]$sampleId))
@@ -49,7 +49,7 @@ rasu <- unique(sid15(mut[grepl("^(HRAS|KRAS|NRAS) ", keyword)]$sampleId))
 meta[, SEQ := sid %in% sq]
 meta[, BRAF_V600E := fifelse(!SEQ, NA_integer_, as.integer(sid %in% b600))]
 meta[, RAS_MUT    := fifelse(!SEQ, NA_integer_, as.integer(sid %in% rasu))]
-cat(sprintf("  %d samples not sequenced (previously coded BRAF=0/RAS=0)\n", sum(!meta$SEQ)))
+cat(sprintf("  %d samples without sequencing information; mutation status recorded as missing\n", sum(!meta$SEQ)))
 cat(sprintf("  Among sequenced samples: BRAF V600E %d, RAS mutation %d, both negative %d\n",
             sum(meta$BRAF_V600E == 1, na.rm=TRUE),
             sum(meta$RAS_MUT    == 1, na.rm=TRUE),

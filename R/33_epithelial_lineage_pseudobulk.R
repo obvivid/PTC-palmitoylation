@@ -1,4 +1,4 @@
-# Independent-donor pseudobulk inference and bounded sensitivities.
+# Independent-donor pseudobulk inference and sensitivity analyses.
 options(warn=1)
 Sys.setenv(OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',MKL_NUM_THREADS='2')
 suppressPackageStartupMessages({library(data.table);library(Matrix);library(edgeR);library(limma)})
@@ -14,8 +14,8 @@ pb <- as.matrix(raw[,-1]);rownames(pb)<-raw$gene
 stopifnot(identical(colnames(pb),md$sample))
 eligible <- md[treatment=='untreated' & n_cells>=50]
 stopifnot(nrow(eligible)==8,uniqueN(eligible$donor_id)==7)
-# Donor 7 supplies both tissues. Preserve all three eligible normal donors.
-# This is a design correction after review, not a preregistered rule.
+# Retain NORM07 and exclude PTC07 so that each donor contributes one untreated specimen,
+# while preserving all three eligible normal donors. This retrospective selection rule was not preregistered.
 primary <- eligible[sample!='PTC07']
 stopifnot(nrow(primary)==7,uniqueN(primary$donor_id)==7,
           sum(primary$tissue=='NORM')==3,sum(primary$tissue=='PTC')==4)

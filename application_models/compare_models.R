@@ -108,4 +108,4 @@ for(id in names(poolmodels)){
 }
 writeLines(unique(failures),file.path(ROOT,'tables/fit_failures.txt'))
 writeLines(capture.output(sessionInfo()),file.path(ROOT,'session_info_models.txt'))
-cat('All prespecified candidate comparisons completed.\n')
+cat('All 30 candidate comparisons completed.\n')

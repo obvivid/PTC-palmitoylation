@@ -5,7 +5,7 @@ dir.create(file.path(ROOT,'tables'),recursive=TRUE,showWarnings=FALSE)
 dir.create(file.path(ROOT,'workflow'),recursive=TRUE,showWarnings=FALSE)
 source(file.path(SOURCE_ROOT,'single_sample','single_sample_score.R'))
 PUBLIC <- file.path(SOURCE_ROOT,'R','05_external_ptc.R')
-# Load the published parser definitions, without running the original analysis.
+# Load GEO parser functions from R/05_external_ptc.R without executing that module.
 env<-new.env(parent=.GlobalEnv)
 for(e in parse(PUBLIC,encoding='UTF-8')){
  if(is.call(e)&&identical(e[[1]],as.name('<-'))&&is.call(e[[3]])&&identical(e[[3]][[1]],as.name('function')))eval(e,envir=env)
@@ -213,4 +213,4 @@ fwrite(rbindlist(mixrecords),file.path(ROOT,'tables/synthetic_signal_mixing_reco
 
 saveRDS(list(model=model,datasets=datasets,results=result),file.path(ROOT,'analysis_cache.rds'))
 writeLines(capture.output(sessionInfo()),file.path(ROOT,'session_info.txt'))
-cat('Fixed single-sample analysis completed. Tables and excluded checkpoints are under outputs.\n')
+cat('Fixed single-sample analysis completed. Tables and checkpoints were written to outputs/analysis/single_sample.\n')

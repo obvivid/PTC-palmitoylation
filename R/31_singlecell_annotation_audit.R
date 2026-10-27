@@ -2,7 +2,7 @@
 suppressPackageStartupMessages({library(data.table);library(Matrix);library(ggplot2)})
 SC <- file.path(RESULT_DIR,"extended/singlecell")
 L <- readRDS(file.path(SC,"counts_annotated_193581.rds"))
-if(is.null(L$cluster))stop("Run updated step 18 to retain cluster identities.")
+if(is.null(L$cluster))stop("Run step 18 to generate processed counts with cluster identities.")
 C <- L$counts;cl <- as.character(L$cluster);ct <- as.character(L$celltype)
 stopifnot(ncol(C)==length(cl),ncol(C)==length(ct),!anyNA(cl),!anyNA(ct))
 MARK<-list(`T/NK`=c("CD3D","CD3E","CD2","TRAC","IL7R","NKG7","KLRD1"),`B/Plasma`=c("MS4A1","CD79A","CD79B","IGKC","MZB1","JCHAIN","IGHG1"),Myeloid=c("LYZ","CD68","CD14","AIF1","ITGAX","C1QA","FCN1"),Mast=c("TPSAB1","TPSB2","MS4A2","CPA3","KIT"),Endothelial=c("PECAM1","VWF","EGFL7","PLVAP","CLDN5"),Fibroblast=c("COL1A1","COL1A2","DCN","FAP","PDGFRA","LUM"),Thyrocyte=c("TG","TPO","SLC5A5","TSHR","PAX8","FOXE1","SLC26A4","DIO1","DIO2"),Prolif=c("MKI67","TOP2A","PCNA","CCNB1","BIRC5"),Squamous=c("KRT5","KRT14","KRT6A","KRT17","S100A2"))

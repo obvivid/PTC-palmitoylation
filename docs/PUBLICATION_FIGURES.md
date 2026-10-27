@@ -1,4 +1,4 @@
-# Figures in the v9 manuscript
+# Figure reproduction guide
 
 Step 30 prepares the coordinated plotting objects and complete cellular summaries. Step 34 writes the final Figures 5–7 and Supplementary Figures S6–S7. Curated public plotting tables supply the retained coordinates and annotations; figure rendering does not repeat feature selection or model training.
 
@@ -25,6 +25,6 @@ Step 30 prepares the coordinated plotting objects and complete cellular summarie
 
 Figure 7a contains two rows (normal N-1 and PTC PTC-1) and two columns (ABHD17C and ZDHHC20). Main and supplementary spatial maps use a neutral background, with grey points for undetected transcripts and orange points for raw counts greater than zero. Maps within each section use identical coordinates, scale and point sizes. Counts and percentages describe the displayed section; section labels do not assign malignant-cell identity to individual spots. Figure 7b uses one point per section and black median bars.
 
-The figure update retains the existing spatial coordinates, detection states, 52,906 retained spots and 16 sections. Rendering Figure 7 and Supplementary Figure S7 requires no histology-image file. The geometry and detection summaries remain traceable to the public GEO study. No deposited tissue image is reproduced in these final spatial figures.
+Spatial figures use the supplied coordinates and detection states for 52,906 retained spots across 16 sections. Rendering Figure 7 and Supplementary Figure S7 requires no histology-image file. The geometry and detection summaries remain traceable to the public GEO study. No deposited tissue image is reproduced in these final spatial figures.
 
-The manuscript contains seven main figures and Table 1. PNGs are rendered at 300 dpi, TIFFs at 600 dpi and PDFs retain vector marks where supported. The source distribution contains public-study identifiers, coordinates and summaries; private local paths and author contact details are excluded.
+The manuscript contains seven main figures and Table 1. PNGs are rendered at 300 dpi, TIFFs at 600 dpi and PDFs retain vector marks where supported. The supplied plotting tables contain public study identifiers, coordinates and summary values.

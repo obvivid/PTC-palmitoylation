@@ -45,7 +45,7 @@ add("CTD chemicals with at least three genes",ctd[metric=="n_chem_ge3"]$value,77
 add("CTD random count P",ctd[metric=="p_n_chem"]$value,0.894105894,0.01)
 add("CTD random three gene P",ctd[metric=="p_ge3"]$value,0.500499500,0.01)
 # Supplementary Table S7 effect direction. Mutation effects are mutant minus wild type and sex is
-# female minus male; these checks fail if a group order is ever reversed again.
+# female minus male; these checks verify the expected contrast directions.
 clin <- read_table("revision_clinical_exclNX_2026-10-02.csv")
 add("BRAF delta mutant minus wild type",clin[var=="BRAF V600E"]$eff,0.527333,0.01)
 add("RAS delta mutant minus wild type",clin[var=="RAS mutation"]$eff,-0.328053,0.01)

@@ -18,9 +18,9 @@ sections <- fread(file.path(SUPSRC,"spatial_section_detection.csv"))
 stopifnot(nrow(U)==67672L,!anyDuplicated(U$cell),nrow(SP)==52906L,nrow(QC)==16L,nrow(sections)==64L)
 # Spatial rendering uses curated retained coordinates and no tissue-image input.
 CHECK <- list(umap_cells=nrow(U),spatial_spots=nrow(SP),spatial_sections=nrow(QC),curated_coordinates=TRUE)
-# Reconstruct existing plot objects and verify their numerical inputs using the
-# already validated publication path; no models or feature selections are refit.
-cat("Loading validated publication plot objects\n")
+# Reconstruct plot objects using R/23_publication_figures.R;
+# feature selection and model fitting are not repeated.
+cat("Loading publication plot objects\n")
 original_output <- OUTPUT_DIR
 OUTPUT_DIR <- file.path(DEST,"revision_baseline")
 source(file.path(SOURCE_ROOT,"R/23_publication_figures.R"),local=environment(),encoding="UTF-8")
@@ -90,7 +90,7 @@ map_plot<-function(gsm,g,small=FALSE){
 }
 normal <- QC[tissue=="NORM"][order(label)]$sample[1];ptc <- QC[tissue=="PTC"][order(label)]$sample[1]
 CHECK$main_spatial_sections <- c(normal,ptc)
-# Intermediate cellular figure; final v8 Figures 6 and 7 are written by step 34.
+# Intermediate cellular figure; step 34 writes Figures 6 and 7 used in the paper.
 spatial_grid <- wrap_plots(map_plot(normal,"ABHD17C"),map_plot(normal,"ZDHHC20"),
                           map_plot(ptc,"ABHD17C"),map_plot(ptc,"ZDHHC20"),ncol=2)+
  plot_annotation(caption="Orange: detected (raw count > 0)    Grey: not detected",

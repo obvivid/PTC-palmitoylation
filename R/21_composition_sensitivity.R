@@ -166,7 +166,7 @@ cat("\nBH-adjusted P =\n"); print(dcast(M3, unit ~ subgroup, value.var="p_BH")[,
 stopifnot(identical(names(M3), M3_COLS))
 fwrite(M3[, ..M3_COLS], file.path(OUT, "M3_by_driver.csv"))
 
-# Retain the actual proxy matrix, collinearity checks and two bounded alternatives.
+# Export the proxy matrix, collinearity diagnostics and two alternative adjustment models.
 DD<-data.table(sample=COMP$sample,pid=substr(COMP$sample,1,12),grp=grp,
  THY=COMP$THY,STR=COMP$STR,IMM=COMP$IMM,FIB=COMP$FIB,END=COMP$END,TCL=COMP$TCL)
 fwrite(DD,file.path(OUT,"composition_inputs.csv"))

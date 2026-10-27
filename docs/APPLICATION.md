@@ -12,7 +12,7 @@ Tables S19–S21 and S27 use fixed_pipeline_results.csv, development_patient_gro
 
 The original TCGA signature, the equal-weight single-sample contrast and the exploratory learned rule are distinct scoring definitions. The four genes are fixed. See Supplementary Methods SM11–SM12 and Supplementary Tables S22–S23 and S26.
 
-Run modules 25,27,28,29 after acquiring the public GEO inputs. Module 25 constructs the excluded single-sample checkpoint; module 27 prepares four representations and evaluates the finite set of 30 candidates; module 28 exports frozen parameters and evaluates mixtures; module 29 generates Supplementary Figure S10. Module 27 repeats the full five-repeat nested comparison and can take substantial time. Earlier modules need not be rerun if their documented prerequisite outputs are available.
+Run modules 25,27,28,29 after acquiring the public GEO inputs. Module 25 writes `outputs/analysis/single_sample/analysis_cache.rds`; module 27 prepares four representations and evaluates the finite set of 30 candidates; module 28 exports frozen parameters and evaluates mixtures; module 29 generates Supplementary Figure S10. Module 27 repeats the full five-repeat nested comparison and can take substantial time. Earlier modules need not be rerun if their documented prerequisite outputs are available.
 
 For an individual processed GPL570 profile, run:
 

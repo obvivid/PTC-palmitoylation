@@ -1,4 +1,4 @@
-"""Verify public input snapshots against the manuscript input fingerprints."""
+"""Verify required and optional input files against the recorded SHA-256 digests."""
 import argparse
 import csv
 import hashlib
