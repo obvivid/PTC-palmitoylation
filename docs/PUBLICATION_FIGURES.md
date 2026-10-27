@@ -27,4 +27,6 @@ Figure 7a contains two rows (normal N-1 and PTC PTC-1) and two columns (ABHD17C 
 
 Spatial figures use the supplied coordinates and detection states for 52,906 retained spots across 16 sections. Rendering Figure 7 and Supplementary Figure S7 requires no histology-image file. The geometry and detection summaries remain traceable to the public GEO study. No deposited tissue image is reproduced in these final spatial figures.
 
+Gene and RNA symbols are italicised in expression plots. Protein labels in the STRING association network, family names and molecular-score names retain roman type. Mixed labels use ggtext to preserve gene italics alongside sample counts and ordinary text. The final figure files are produced by modules 30 and 31, with Figures 5–7 and Supplementary Figures S6–S7 subsequently written by module 34. This typography update does not alter analysis inputs, model parameters or numerical results.
+
 The manuscript contains seven main figures and Table 1. PNGs are rendered at 300 dpi, TIFFs at 600 dpi and PDFs retain vector marks where supported. The supplied plotting tables contain public study identifiers, coordinates and summary values.

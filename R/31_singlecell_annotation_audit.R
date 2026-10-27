@@ -30,7 +30,7 @@ p<-ggplot(pd,aes(gene,cluster_label,size=pct,colour=scaled_mean))+geom_point()+
  scale_colour_gradient2(low="#0072B2",mid="#EEEEEE",high="#D55E00",midpoint=0,name="Scaled mean\nlog expression")+
  scale_size_continuous(range=c(.15,3.8),limits=c(0,100),breaks=c(0,25,50,75,100),name="Detected (%)")+
  labs(x=NULL,y="Cluster and assigned broad cell type")+theme_bw(base_family="Arial",base_size=8)+
- theme(panel.grid.major=element_line(colour="grey94",linewidth=.3),panel.grid.minor=element_blank(),axis.text.x=element_text(angle=55,hjust=1,size=7),axis.text.y=element_text(size=7),legend.position="bottom",legend.title=element_text(size=8))
+ theme(panel.grid.major=element_line(colour="grey94",linewidth=.3),panel.grid.minor=element_blank(),axis.text.x=element_text(angle=55,hjust=1,size=7,face="italic"),axis.text.y=element_text(size=7),legend.position="bottom",legend.title=element_text(size=8))
 F<-file.path(OUTPUT_DIR,"figures");dir.create(F,recursive=TRUE,showWarnings=FALSE)
 ggsave(file.path(F,"Supplementary_Fig_S11.png"),p,width=6.8,height=7.2,dpi=300,bg="white")
 ggsave(file.path(F,"Supplementary_Fig_S11.tif"),p,width=6.8,height=7.2,dpi=600,compression="lzw",bg="white")

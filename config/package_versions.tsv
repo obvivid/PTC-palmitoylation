@@ -14,6 +14,8 @@ msigdbr	26.1.1	CRAN
 ggplot2	4.0.3	CRAN
 patchwork	1.3.2	CRAN
 ggrepel	0.9.8	CRAN
+ggtext	0.1.2	CRAN
+gridtext	0.1.6	CRAN
 scales	1.4.0	CRAN
 readxl	1.5.0	CRAN
 statmod	1.5.2	CRAN

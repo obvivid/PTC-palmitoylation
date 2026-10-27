@@ -1,7 +1,7 @@
 # Run explicitly to install missing dependencies into your normal R library.
 # This uses currently available releases; recorded versions are not automatically pinned.
 cran <- c("data.table","glmnet","randomForest","e1071","pROC","httr","jsonlite",
-          "msigdbr","ggplot2","patchwork","ggrepel","scales","readxl","statmod","Seurat","harmony","Matrix","survival","sandwich","png")
+          "msigdbr","ggplot2","patchwork","ggrepel","ggtext","scales","readxl","statmod","Seurat","harmony","Matrix","survival","sandwich","png")
 bioc <- c("limma","GSVA","clusterProfiler","org.Hs.eg.db","edgeR","scDblFinder","SingleCellExperiment")
 missing <- cran[!vapply(cran,requireNamespace,logical(1),quietly=TRUE)]
 if (length(missing)) install.packages(missing,repos="https://cloud.r-project.org")

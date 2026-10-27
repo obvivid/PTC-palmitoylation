@@ -22,7 +22,8 @@ box <- function(dat,ylab) ggplot(dat,aes(group,value,fill=group)) +
   scale_fill_manual(values=cols,guide="none") + labs(x=NULL,y=ylab)
 expr <- rbindlist(lapply(SIG,function(g) data.table(gene=g,group=grp,value=as.numeric(E[g,colnames(E29)]))))
 expr[,group:=factor(group,levels=c("Normal","Tumor"),labels=c("Normal","PTC"))]
-px <- box(expr,"log2(CPM + 1)") + facet_wrap(~gene,nrow=1)
+px <- box(expr,"log2(CPM + 1)") + facet_wrap(~gene,nrow=1) +
+ theme(strip.text=element_text(face="italic"))
 score <- fread(file.path(DIR,"signature_scores_tcga.csv"))
 score <- score[sample %in% oof$sample];score[,group:=factor(group,levels=c("Normal","Tumor"),labels=c("Normal","PTC"))]
 ps <- box(score[,.(group,value=risk)],"Signature score")
@@ -32,7 +33,7 @@ f3b <- ggplot(vol,aes(logFC,-log10(adj.P.Val))) +
  geom_point(colour="#0072B2",size=1.8) +
  geom_vline(xintercept=c(-.5,.5),linetype=3,colour="grey60",linewidth=.6) +
  geom_text_repel(data=vol[!is.na(lab)],aes(label=lab),size=7/2.845,
-                 max.overlaps=30,segment.size=.3,seed=7) +
+                 max.overlaps=30,segment.size=.3,seed=7,fontface="italic") +
  labs(x="log2 fold change (tumour vs normal)",y="-log10 FDR")
 fig1 <- (wrap_elements(full=f3a) | f3b) + plot_annotation(tag_levels="a")
 export(fig1,"Fig1",5.0)
@@ -76,7 +77,8 @@ f1a <- ggplot() +
  annotate("text",x=.26,y=.96,label="LASSO\n(12)",colour="#2C7FB8",size=7/2.845) +
  annotate("text",x=.75,y=.96,label="Random forest\n(10)",colour="#D95F02",size=7/2.845) +
  annotate("text",x=.5,y=.045,label="SVM-RFE (5)",colour="#1B9E77",size=7/2.845) +
- annotate("text",x=.5,y=-.075,label="ABHD17C  ZDHHC6\nABHD17B  ZDHHC20",size=7/2.845) +
+ annotate("text",x=.5,y=-.075,label="ABHD17C  ZDHHC6\nABHD17B  ZDHHC20",size=7/2.845,
+          fontface="italic") +
  coord_equal(xlim=c(.06,.94),ylim=c(-.16,1.07),clip="off") + theme_void()
 fig3 <- (f1a | f1b) / ((px | ps)+plot_layout(widths=c(3,1))) /
  (f2a | f2b) + plot_layout(heights=c(1,.8,1.1)) + plot_annotation(tag_levels="a")
@@ -193,7 +195,8 @@ ee <- as.data.table(t(E[SIG,colnames(E29)]));ee[,sample:=colnames(E29)];ee[,pid:
 dd <- merge(ee[group=="Tumor"],ee[group=="Normal"],by="pid",suffixes=c("_T","_N"))
 pd <- rbindlist(lapply(SIG,function(g)data.table(gene=g,value=dd[[paste0(g,"_T")]]-dd[[paste0(g,"_N")]])))
 pp <- ggplot(pd,aes(gene,value))+geom_hline(yintercept=0,linetype=2,colour="grey55")+
- geom_boxplot(fill="#0072B2",alpha=.3,outlier.shape=NA,width=.5)+geom_point(position=position_jitter(width=.12,seed=11),size=.8,alpha=.5)+labs(x=NULL,y="Paired difference in log2(CPM + 1)")
+ geom_boxplot(fill="#0072B2",alpha=.3,outlier.shape=NA,width=.5)+geom_point(position=position_jitter(width=.12,seed=11),size=.8,alpha=.5)+labs(x=NULL,y="Paired difference in log2(CPM + 1)")+
+ theme(axis.text.x=element_text(face="italic"))
 sp <- copy(score);sp[,pid:=substr(sample,1,12)];sd <- merge(sp[group=="PTC"],sp[group=="Normal"],by="pid",suffixes=c("_T","_N"))
 stopifnot(nrow(sd)==59,nrow(dd)==59)
 pp2 <- ggplot(sd,aes(x="59 matched patients",y=risk_T-risk_N))+geom_hline(yintercept=0,linetype=2,colour="grey55")+

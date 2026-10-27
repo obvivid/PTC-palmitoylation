@@ -4,6 +4,10 @@ suppressPackageStartupMessages({library(data.table);library(ggplot2);library(pat
 F <- file.path(OUTPUT_DIR,'figures');dir.create(F,recursive=TRUE,showWarnings=FALSE)
 TAB <- file.path(SOURCE_ROOT,'data/figure_tables');REV<-file.path(TAB,'revision')
 SIG<-c('ABHD17C','ZDHHC6','ABHD17B','ZDHHC20')
+gene_display<-function(x){
+  x<-as.character(x)
+  ifelse(x%in%SIG,paste0('<i>',x,'</i>'),x)
+}
 ST<-theme_bw(base_family='Arial',base_size=9)+theme(panel.grid.minor=element_blank(),
   panel.grid.major=element_line(colour='grey94',linewidth=.25),axis.text=element_text(colour='grey20',size=7.5),
   axis.title=element_text(size=8),plot.title=element_text(size=9,face='bold'),plot.subtitle=element_text(size=7.3),
@@ -26,10 +30,13 @@ bx<-rbind(cl[!is.na(BRAF_V600E),.(group=ifelse(BRAF_V600E==1,'BRAF V600E','BRAF 
 bx[,group:=factor(group,levels=c('BRAF WT','BRAF V600E','RAS WT','RAS mutant'))]
 bx[,panel:=factor(panel,levels=c('BRAF V600E','RAS mutant'))]
 nns<-bx[,.(n=.N),by=group];labsx<-setNames(paste0(nns$group,'\n(n = ',nns$n,')'),nns$group)
+labsx<-setNames(gsub('\n','<br>',sub('^BRAF','<i>BRAF</i>',unname(labsx)),fixed=TRUE),names(labsx))
+panel_labels<-c('BRAF V600E'='<i>BRAF</i> V600E','RAS mutant'='RAS mutant')
 pa<-ggplot(bx,aes(group,value,fill=group))+geom_boxplot(width=.55,outlier.shape=NA,linewidth=.4,alpha=.85)+
-  geom_point(position=position_jitter(width=.13,seed=11),size=.45,alpha=.3)+facet_wrap(~panel,scales='free_x')+
+  geom_point(position=position_jitter(width=.13,seed=11),size=.45,alpha=.3)+facet_wrap(~panel,scales='free_x',labeller=as_labeller(panel_labels))+
   scale_fill_manual(values=c('grey75','#D55E00','grey75','#0072B2'),guide='none')+scale_x_discrete(labels=labsx)+
-  labs(x=NULL,y='Signature score')+ST+theme(strip.background=element_rect(fill='grey97'),strip.text=element_text(size=8))
+  labs(x=NULL,y='Signature score')+ST+theme(strip.background=element_rect(fill='grey97'),
+  strip.text=ggtext::element_markdown(size=8),axis.text.x=ggtext::element_markdown())
 axisdat<-fread(file.path(REV,'molecular_axis_plot_data.csv'))
 scatter<-function(v,label){
  d<-axisdat[is.finite(get(v)) & is.finite(risk)]
@@ -45,12 +52,13 @@ pm<-ggplot(mu,aes(d_cohen,plot_y,colour=subgroup))+geom_vline(xintercept=0,linet
   geom_point(size=1.7)+
   geom_text(aes(label=sprintf('%+.2f',d_cohen)),nudge_x=.10,hjust=0,size=2.6,show.legend=FALSE)+
   scale_colour_manual(values=c(BRAFmut='#D55E00',RASmut='#0072B2',driverneg='#009E73'),
-    labels=c('BRAF V600E (n = 283)','RAS mutant (n = 58)','Neither recorded (n = 146)'),name=NULL)+
+    labels=c('<i>BRAF</i> V600E (n = 283)','RAS mutant (n = 58)','Neither recorded (n = 146)'),name=NULL)+
   scale_x_continuous(limits=c(-2.7,4.85),breaks=seq(-2,4,2))+
-  scale_y_continuous(breaks=seq_along(levels(mu$unit)),labels=levels(mu$unit),
+  scale_y_continuous(breaks=seq_along(levels(mu$unit)),labels=gene_display(levels(mu$unit)),
                      limits=c(.45,5.55),expand=expansion(mult=0))+
   labs(x='Standardised tumour-normal difference',y=NULL,title='Expression across mutation groups')+ST+
-  theme(legend.text=element_text(size=6.8),legend.key.width=unit(.3,'cm'))
+  theme(axis.text.y=ggtext::element_markdown(),legend.text=ggtext::element_markdown(size=6.8),
+        legend.key.width=unit(.3,'cm'))
 fig5<-pa/(scatter('BRAF_RAF_score','BRAF-RAS score')|scatter('differentiation_score','Thyroid differentiation score'))/
   (scatter('ERK_score','ERK-output score')|scatter('purity','Tumour purity'))/pm+
   plot_layout(heights=c(.85,1,1,1.45))+plot_annotation(tag_levels='a')
@@ -64,7 +72,8 @@ adjplot<-function(dd,title){
  geom_errorbar(aes(xmin=lo,xmax=hi),orientation='y',width=.18,position=position_dodge(.45),linewidth=.4)+
  geom_point(size=1.7,position=position_dodge(.45))+
  scale_colour_manual(values=c(Unadjusted='#0072B2',Adjusted='#D55E00'),name=NULL)+
- labs(x='Tumour-normal coefficient',y=NULL,title=title)+ST+theme(legend.text=element_text(size=6.8))
+ labs(x='Tumour-normal coefficient',y=NULL,title=title)+ST+scale_y_discrete(labels=gene_display)+
+ theme(axis.text.y=ggtext::element_markdown(),legend.text=element_text(size=6.8))
 }
 U<-fread(file.path(REV,'umap_current_annotations.csv'))
 ctcol<-c(Thyrocyte='#D55E00',Endothelial='#009E73',Fibroblast='#CC79A7',`T/NK`='#0072B2',`B/Plasma`='#56B4E9',Myeloid='#7A5195')
@@ -81,7 +90,7 @@ pd<-ggplot(cs,aes(gene,celltype,size=pct_detect,colour=mean_expr))+geom_point()+
  scale_colour_viridis_c(option='C',name='Mean expression',breaks=c(0,.1,.2))+
  labs(x=NULL,y=NULL,title='Transcript distribution')+ST+
  theme(panel.grid=element_blank(),panel.border=element_blank(),axis.ticks=element_blank(),
-       axis.text=element_text(size=6.7),legend.box='vertical',legend.spacing.y=unit(0,'pt'),legend.margin=margin(0,0,0,0))+
+       axis.text=element_text(size=6.7),axis.text.x=element_text(face='italic'),legend.box='vertical',legend.spacing.y=unit(0,'pt'),legend.margin=margin(0,0,0,0))+
  guides(colour=guide_colourbar(barwidth=unit(2.5,'cm'),barheight=unit(.15,'cm'),title.position='top'),
         size=guide_legend(nrow=1,title.position='top'))
 q1<-fread(file.path(REV,'Q1_results.csv'))[analysis=='Q1_primary_independent']
@@ -99,13 +108,14 @@ forest<-function(d,title){
 }
 lv<-fread(file.path(REV,'per_unit_expression.csv'))[analysis=='Q1_primary_independent']
 donorplot<-function(g,title=g,label=FALSE){
+ title_label<-if(identical(title,g))bquote(bolditalic(.(g)))else if(identical(title,'ABHD17C by donor'))bquote(bolditalic('ABHD17C')*' by donor')else title
  dd<-copy(lv);dd[,group:=factor(tissue,levels=c('NORM','PTC'),labels=c('Normal','PTC'))]
  p<-ggplot(dd,aes(group,.data[[g]],colour=group))+
    geom_point(position=position_jitter(width=.1,seed=11),size=2)+
    stat_summary(fun=median,fun.min=median,fun.max=median,geom='crossbar',width=.4,colour='black',linewidth=.4)+
    scale_colour_manual(values=c(Normal='#0072B2',PTC='#D55E00'),guide='none')+
    scale_x_discrete(labels=c('Normal\n(n = 3)','PTC\n(n = 4)'))+
-   labs(x=NULL,y='log2 CPM',title=title)+ST+theme(panel.grid.major.x=element_blank())
+   labs(x=NULL,y='log2 CPM',title=title_label)+ST+theme(panel.grid.major.x=element_blank())
  if(label)p<-p+geom_text(aes(label=sample),position=position_jitter(width=.1,seed=11),nudge_y=.12,size=2.1,show.legend=FALSE)
  p
 }
@@ -173,7 +183,7 @@ loo<-fread(file.path(REV,'Q1_leave_one_donor_out.csv'))[gene=='ABHD17C']
 loo[,omitted:=factor(sub('Q1_leave_out_','',analysis),levels=rev(c('7','18','19','1','4','5','6')))]
 ploo<-ggplot(loo,aes(logFC,omitted))+geom_vline(xintercept=q1[gene=='ABHD17C',logFC],linetype=2,colour='grey50',linewidth=.4)+
  geom_errorbar(aes(xmin=CI.L,xmax=CI.R),orientation='y',width=.16,linewidth=.4,colour='#0072B2')+geom_point(size=1.8,colour='#0072B2')+
- labs(x='ABHD17C log2 fold change (95% CI)',y='Omitted donor',title='Leave-one-donor-out sensitivity')+ST
+ labs(x=bquote(italic('ABHD17C')*' log2 fold change (95% CI)'),y='Omitted donor',title='Leave-one-donor-out sensitivity')+ST
 supp<-(donorplot('ABHD17C')|donorplot('ZDHHC6'))/(donorplot('ABHD17B')|donorplot('ZDHHC20'))/
   (forest(q2,'Malignant versus normal follicular')|ploo)+plot_annotation(tag_levels='a')
 savefig(supp,'Supplementary_Fig_S6',7.2)

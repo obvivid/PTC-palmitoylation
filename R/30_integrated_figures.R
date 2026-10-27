@@ -25,7 +25,7 @@ original_output <- OUTPUT_DIR
 OUTPUT_DIR <- file.path(DEST,"revision_baseline")
 source(file.path(SOURCE_ROOT,"R/23_publication_figures.R"),local=environment(),encoding="UTF-8")
 expr[,gene:=factor(gene,levels=SIG4)]
-px <- box(expr,"log2(CPM + 1)")+facet_wrap(~gene,nrow=1)
+px <- box(expr,"log2(CPM + 1)")+facet_wrap(~gene,nrow=1)+theme(strip.text=element_text(face="italic"))
 fig3 <- (f1a|f1b)/((px|ps)+plot_layout(widths=c(3,1)))/(f2a|f2b)+
  plot_layout(heights=c(1,.8,1.1))+plot_annotation(tag_levels="a")
 export(fig3,"Fig3",8.0)

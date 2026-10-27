@@ -79,7 +79,7 @@ f1a <- ggplot() +
   annotate("text",x=0.83,y=0.90,label="Random forest (10)",colour="#D95F02",size=mp(SZ$annot),hjust=1) +
   annotate("text",x=0.50,y=0.055,label="SVM-RFE (5)",colour="#1B9E77",size=mp(SZ$annot)) +
   annotate("text",x=0.50,y=-0.035,label="ABHD17C  ZDHHC6  ABHD17B  ZDHHC20",
-           size=mp(SZ$gene)) +
+           size=mp(SZ$gene), fontface="italic") +
   coord_equal(xlim=c(0.06,0.94),ylim=c(-0.09,0.95),clip="off") + theme_void()
 
 coefficient_intervals <- fread(file.path(DIR,"signature_coefficients.csv"))
@@ -92,7 +92,7 @@ f1b <- ggplot(cf,aes(est,gene)) +
   geom_errorbarh(aes(xmin=lo,xmax=hi),height=0.15,colour="grey30",linewidth=LW) +
   geom_point(size=2.6,colour="#2C7FB8") +
   labs(x="Logistic regression coefficient", y=NULL) +
-  theme(axis.text.y=element_text(face="bold"))
+  theme(axis.text.y=element_text(face="bold.italic"))
 p1 <- f1a + f1b + plot_layout(widths=c(1,1)) +
   plot_annotation(tag_levels="a") & TAG
 save_fig(p1, 1)
@@ -115,7 +115,8 @@ fr[, gene := factor(gene, levels=rev(as.character(gene)))]
 f2b <- ggplot(fr, aes(n_folds, gene, fill=sig)) +
   geom_col(width=0.7) + scale_fill_manual(values=c(`FALSE`="grey75",`TRUE`="#C0392B"), guide="none") +
   labs(x="Selected in N of 50 training folds", y=NULL) +
-  geom_text(aes(label=n_folds), hjust=-0.25, size=mp(SZ$annot))
+  geom_text(aes(label=n_folds), hjust=-0.25, size=mp(SZ$annot)) +
+  theme(axis.text.y=element_text(face="italic"))
 p2 <- f2a + f2b + plot_layout(widths=c(1,1.15)) +
   plot_annotation(tag_levels="a") & TAG
 save_fig(p2, 2)
@@ -147,7 +148,7 @@ f3a_hm <- ggplot(hm, aes(x, gene, fill=z)) + geom_raster() +
                        name="row z", limits=c(-3,3), oob=scales::squish) +
 labs(x=sprintf("normal (n = %d) | tumour (n = %d)", nn, nT), y=NULL) +   # panel label showing n
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(),
-        axis.text.y=element_text(size=SZ$gene))
+        axis.text.y=element_text(size=SZ$gene, face="italic"))
 f3a <- (ann_bar / f3a_hm + plot_layout(heights=c(0.06, 1)))
 vol <- copy(dg); vol[, sig := gene %in% SIG]
 vol[, lab := fifelse(gene %in% SIG, gene, fifelse(abs(logFC)>0.5, gene, NA_character_))]
@@ -156,7 +157,7 @@ f3b <- ggplot(vol, aes(logFC, -log10(adj.P.Val))) +
   geom_vline(xintercept=c(-0.5,0.5),linetype=3,colour="grey60",linewidth=LW) +
   scale_colour_manual(values=c(`FALSE`="grey55",`TRUE`="#C0392B"), guide="none") +
   geom_text_repel(data=vol[!is.na(lab)], aes(label=lab), size=mp(SZ$annot),
-                  max.overlaps=30, segment.size=0.3) +
+                  max.overlaps=30, segment.size=0.3, fontface="italic") +
   labs(x="log2 fold change (tumour vs normal)", y="-log10 FDR")
 p3 <- (f3a | f3b) + plot_layout(widths=c(1.25,1)) +
   plot_annotation(tag_levels=list(c("a","","b"))) & TAG
